@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingoma y'u Rwanda - Rwandan Royal Heritage & Sacred Sites</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display for majestic titles & Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royalGold: '#D4AF37',
+                        royalGoldLight: '#F3E5AB',
+                        royalDark: '#0D1117',
+                        royalNavy: '#161B22',
+                        royalCard: 'rgba(22, 27, 34, 0.75)',
+                        terracotta: '#C85A32',
+                        lushGreen: '#1B4332',
+                        emeraldAccent: '#2D6A4F',
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "radial-gradient(circle at center, rgba(212,175,55,0.15) 0%, rgba(13,17,23,0.95) 70%)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Imigongo Pattern Overlay Background */
+        .imigongo-bg {
+            background-color: #0d1117;
+            background-image:  linear-gradient(135deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%), 
+                               linear-gradient(225deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%), 
+                               linear-gradient(45deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%), 
+                               linear-gradient(315deg, rgba(212, 175, 55, 0.05) 25%, transparent 25%);
+            background-position:  20px 0, 20px 0, 0 0, 0 0;
+            background-size: 40px 40px;
+            background-repeat: repeat;
+        }
+
+        .imigongo-border {
+            border-image: linear-gradient(90deg, #D4AF37, #C85A32, #D4AF37, #1B4332, #D4AF37) 1;
+        }
+
+        /* Glassmorphism styling */
+        .glass-panel {
+            background: rgba(22, 27, 34, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .glass-panel-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 20px 30px -10px rgba(212, 175, 55, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d1117;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f3e5ab;
+        }
+
+        /* Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Smooth tab animations */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Keyframe for subtle floating effect */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        /* Modal backdrop transition */
+        .modal-blur {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-royalDark text-gray-200 font-sans antialiased imigongo-bg min-h-screen selection:bg-royalGold selection:text-black">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-royalGold/20 px-4 lg:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand / Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border-2 border-royalGold bg-royalNavy flex items-center justify-center text-royalGold group-hover:rotate-45 transition-transform duration-500 shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+                    <i class="fa-solid font-bold text-lg"><span class="font-serif">🇷🇼</span></i>
+                </div>
+                <div>
+                    <span class="font-serif font-bold text-lg sm:text-xl tracking-wider text-white block leading-none">INGOMA Y'U RWANDA</span>
+                    <span class="text-[10px] tracking-widest text-royalGold uppercase font-semibold">Royal Kingdom & Historical Heritage</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#kings" class="text-gray-300 hover:text-royalGold transition-colors flex items-center gap-2"><i class="fa-solid fa-crown text-xs text-royalGold"></i> The Kings</a>
+                <a href="#sites" class="text-gray-300 hover:text-royalGold transition-colors flex items-center gap-2"><i class="fa-solid fa-monument text-xs text-royalGold"></i> Sacred Sites</a>
+                <a href="#inyambo" class="text-gray-300 hover:text-royalGold transition-colors flex items-center gap-2"><i class="fa-solid fa-dharmachakra text-xs text-royalGold"></i> Inyambo & Regalia</a>
+                <a href="#quiz" class="text-gray-300 hover:text-royalGold transition-colors flex items-center gap-2"><i class="fa-solid fa-scroll text-xs text-royalGold"></i> Trivia Quiz</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden sm:block">
+                <a href="#kings" class="px-5 py-2 rounded-full border border-royalGold text-royalGold hover:bg-royalGold hover:text-royalDark text-xs uppercase tracking-wider font-bold transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.2)]">
+                    Explore Kings
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-royalGold text-2xl p-2 focus:outline-none" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden pt-4 pb-2 px-4 border-t border-royalGold/20 mt-3 space-y-3">
+            <a href="#kings" class="mobile-nav-link block text-gray-200 hover:text-royalGold py-1.5"><i class="fa-solid fa-crown mr-2 text-royalGold"></i> Royal Kings Timeline</a>
+            <a href="#sites" class="mobile-nav-link block text-gray-200 hover:text-royalGold py-1.5"><i class="fa-solid fa-monument mr-2 text-royalGold"></i> Sacred Historical Sites</a>
+            <a href="#inyambo" class="mobile-nav-link block text-gray-200 hover:text-royalGold py-1.5"><i class="fa-solid fa-dharmachakra mr-2 text-royalGold"></i> Inyambo & Regalia</a>
+            <a href="#quiz" class="mobile-nav-link block text-gray-200 hover:text-royalGold py-1.5"><i class="fa-solid fa-scroll mr-2 text-royalGold"></i> Interactive Quiz</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-32 px-4 overflow-hidden flex items-center justify-center min-h-[90vh]">
+        <!-- Glow Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-royalGold/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 left-10 w-72 h-72 bg-terracotta/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10 space-y-8">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-royalGold/30 text-royalGold text-xs uppercase tracking-widest font-semibold animate-float">
+                <i class="fa-solid fa-shield-halved text-sm"></i>
+                <span>Chronicles of Rwandan Royalty</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+                Emperors of <span class="gold-gradient-text">Ingoma y'u Rwanda</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="max-w-3xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl font-light leading-relaxed">
+                Step back through centuries into the ancient monarchic tapestry of Rwanda. From the legendary founder <span class="text-royalGold font-medium">King Gihanga Ngomijana</span> to the final sovereign <span class="text-royalGold font-medium">King Kigeri V Ndahindurwa</span>. Discover sacred rituals, legendary victories, and eternal cultural monuments.
+            </p>
+
+            <!-- Royal Drums Display Badges -->
+            <div class="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                <div class="glass-panel p-4 rounded-xl text-center border-t-2 border-t-royalGold">
+                    <span class="block text-2xl font-serif text-royalGold font-bold">~1091 BC</span>
+                    <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Monarchic Beginnings</span>
+                </div>
+                <div class="glass-panel p-4 rounded-xl text-center border-t-2 border-t-terracotta">
+                    <span class="block text-2xl font-serif text-terracotta font-bold">Kalinga</span>
+                    <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Sacred Drum Emblem</span>
+                </div>
+                <div class="glass-panel p-4 rounded-xl text-center border-t-2 border-t-emeraldAccent">
+                    <span class="block text-2xl font-serif text-emerald-400 font-bold">Rukari</span>
+                    <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Royal Seat at Nyanza</span>
+                </div>
+                <div class="glass-panel p-4 rounded-xl text-center border-t-2 border-t-royalGold">
+                    <span class="block text-2xl font-serif text-royalGold font-bold">28+ Kings</span>
+                    <span class="text-xs text-gray-400 font-medium uppercase tracking-wider">Historical Dynasty</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-6 flex flex-wrap items-center justify-center gap-4">
+                <a href="#kings" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-royalGold via-amber-500 to-terracotta text-royalDark font-bold text-sm tracking-wide uppercase transition-transform hover:scale-105 shadow-[0_0_25px_rgba(212,175,55,0.4)]">
+                    <i class="fa-solid fa-crown mr-2"></i> Explore Monarchs
+                </a>
+                <a href="#sites" class="px-8 py-3.5 rounded-full glass-panel border border-royalGold/40 text-white font-medium text-sm tracking-wide uppercase hover:bg-royalGold/10 hover:border-royalGold transition-all">
+                    <i class="fa-solid fa-map-location-dot mr-2 text-royalGold"></i> Tour Sacred Sites
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: INTERACTIVE ROYAL TIMELINE OF KINGS -->
+    <section id="kings" class="py-20 px-4 max-w-7xl mx-auto relative">
+        <!-- Section Header -->
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-xs uppercase tracking-widest text-royalGold font-bold">The Lineage of Mwami</h2>
+            <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white">Chronological Royal Dynasty</h3>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-royalGold to-transparent mx-auto mt-2"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+                Click on any monarch to reveal detailed historical feats, oral tradition poems (*Ibyivugo*), and key accomplishments during their reign.
+            </p>
+        </div>
+
+        <!-- Filter / Dynasty Category Tabs -->
+        <div class="flex justify-center mb-12 overflow-x-auto pb-2">
+            <div class="inline-flex glass-panel p-1.5 rounded-full space-x-1 sm:space-x-2 border border-royalGold/30">
+                <button class="dynasty-filter-btn active px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-royalGold text-royalDark" data-filter="all">All Monarchs</button>
+                <button class="dynasty-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all text-gray-300 hover:text-royalGold" data-filter="mythological">Mythological Founders</button>
+                <button class="dynasty-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all text-gray-300 hover:text-royalGold" data-filter="expansionist">Re-organizers & Expansionists</button>
+                <button class="dynasty-filter-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all text-gray-300 hover:text-royalGold" data-filter="modern">Modern Era Kings</button>
+            </div>
+        </div>
+
+        <!-- Timeline Grid / Interactive Cards -->
+        <div id="kingsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Dynamic Javascript Insertion of Kings -->
+        </div>
+    </section>
+
+    <!-- SECTION 2: SACRED HISTORICAL SITES EXPLORER -->
+    <section id="sites" class="py-20 px-4 bg-royalNavy/60 border-y border-royalGold/20 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center space-y-3 mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-royalGold font-bold">Sanctuaries & Monuments</h2>
+                <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white">Sacred Historical Sites</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-royalGold to-transparent mx-auto mt-2"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+                    Discover the geographical cradle of the kingdom—from sacred coronation forests to royal palaces and mystical water vessels.
+                </p>
+            </div>
+
+            <!-- Site Selection Grid -->
+            <div id="sitesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: INYAMBO CATTLE & ROYAL REGALIA GALLERY -->
+    <section id="inyambo" class="py-20 px-4 max-w-7xl mx-auto relative">
+        <div class="text-center space-y-3 mb-16">
+            <h2 class="text-xs uppercase tracking-widest text-royalGold font-bold">Symbols of Divinity & Majesty</h2>
+            <h3 class="font-serif text-3xl sm:text-5xl font-bold text-white">Inyambo Cattle & Regalia</h3>
+            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-royalGold to-transparent mx-auto mt-2"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+                In ancient Rwanda, cows were a symbol of prosperity, grace, and royal divinity. The Inyambo were raised with special songs (*Amatagisi*) and cared for meticulously.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <!-- Interactive Card 1: Inyambo Cattle -->
+            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-royalGold/30 relative overflow-hidden group">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-royalGold/10 rounded-full blur-2xl group-hover:bg-royalGold/20 transition-all"></div>
+                
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-full bg-royalGold/20 border border-royalGold flex items-center justify-center text-royalGold text-2xl">
+                        <i class="fa-solid fa-cow"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-2xl font-bold text-white">Inyambo Sacred Cattle</h4>
+                        <span class="text-xs text-royalGold uppercase font-semibold tracking-wider">Aristocratic Long-Horned Herds</span>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                    Selected for their elegant long horns, regal stride, and serene temperament, Inyambo cattle were trained to march in rhythm during royal parades. They were adorned with elaborate woven headpieces (*Amashako*) and celebrated through royal poetry.
+                </p>
+
+                <!-- Audio Simulation Player for Traditional Poetry / Amatagisi -->
+                <div class="bg-royalDark/90 p-4 rounded-xl border border-royalGold/20 space-y-3">
+                    <div class="flex items-center justify-between text-xs text-royalGold font-semibold">
+                        <span><i class="fa-solid fa-music mr-2"></i> Amatagisi (Royal Cow Poem Recitation)</span>
+                        <span id="audioTime">0:00 / 0:30</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button id="playAudioBtn" class="w-10 h-10 rounded-full bg-royalGold text-royalDark flex items-center justify-center hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-play text-sm" id="playIcon"></i>
+                        </button>
+                        <div class="flex-1 bg-gray-800 h-2 rounded-full overflow-hidden">
+                            <div id="audioProgressBar" class="bg-gradient-to-r from-royalGold to-terracotta h-full w-0 transition-all duration-300"></div>
+                        </div>
+                    </div>
+                    <p id="audioCaption" class="text-[11px] text-gray-400 italic">"Inyambo z'umwami, izabashije gutsinda ibikomeye..."</p>
+                </div>
+            </div>
+
+            <!-- Interactive Card 2: Royal Regalia (Kalinga & Spears) -->
+            <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-royalGold/30 relative overflow-hidden group">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-full bg-terracotta/20 border border-terracotta flex items-center justify-center text-terracotta text-2xl">
+                        <i class="fa-solid fa-drum"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-serif text-2xl font-bold text-white">Royal Regalia & Emblems</h4>
+                        <span class="text-xs text-terracotta uppercase font-semibold tracking-wider">Symbols of Sovereignty</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-3.5 bg-royalNavy/80 rounded-xl border border-royalGold/10 flex items-start gap-3">
+                        <div class="text-royalGold text-lg pt-0.5"><i class="fa-solid fa-drum"></i></div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">Kalinga (The Sacred Drum)</h5>
+                            <p class="text-xs text-gray-400 mt-1">The supreme emblem of the kingdom's sovereignty. It was believed to hold the soul and unity of Rwanda.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-royalNavy/80 rounded-xl border border-royalGold/10 flex items-start gap-3">
+                        <div class="text-royalGold text-lg pt-0.5"><i class="fa-solid fa-[#F00]"></i>🗡️</div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">Elm & Spears (*Icumu*)</h5>
+                            <p class="text-xs text-gray-400 mt-1">Sacred spears used in royal rituals, symbolizing defense, territorial integrity, and martial prowess.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-royalNavy/80 rounded-xl border border-royalGold/10 flex items-start gap-3">
+                        <div class="text-royalGold text-lg pt-0.5"><i class="fa-solid fa-feather"></i></div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">Amashako & Crown</h5>
+                            <p class="text-xs text-gray-400 mt-1">Woven ceremonial headwear crafted from fine fiber and decorated with leopard skin or beads.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE TRIVIA QUIZ -->
+    <section id="quiz" class="py-20 px-4 bg-royalNavy/70 border-t border-royalGold/20 relative">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center space-y-3 mb-12">
+                <h2 class="text-xs uppercase tracking-widest text-royalGold font-bold">Test Your Knowledge</h2>
+                <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white">Rwandan Royal Heritage Quiz</h3>
+                <div class="w-20 h-1 bg-gradient-to-r from-transparent via-royalGold to-transparent mx-auto mt-2"></div>
+            </div>
+
+            <!-- Quiz Box Container -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-royalGold/30 relative">
+                <div id="quizCard">
+                    <!-- Progress Header -->
+                    <div class="flex justify-between items-center mb-6 text-xs text-royalGold font-semibold uppercase tracking-wider">
+                        <span id="quizProgressText">Question 1 of 5</span>
+                        <span id="quizScoreText">Score: 0</span>
+                    </div>
+
+                    <!-- Question Text -->
+                    <h4 id="quizQuestion" class="text-lg sm:text-2xl font-serif text-white font-bold mb-6">
+                        Loading quiz question...
+                    </h4>
+
+                    <!-- Options Grid -->
+                    <div id="quizOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <!-- Options injected via JS -->
+                    </div>
+
+                    <!-- Feedback Box -->
+                    <div id="quizFeedback" class="hidden p-4 rounded-xl text-sm font-medium mb-6"></div>
+
+                    <!-- Next Button -->
+                    <div class="flex justify-end">
+                        <button id="nextQuizBtn" class="hidden px-6 py-2.5 rounded-full bg-royalGold text-royalDark font-bold text-xs uppercase tracking-wider hover:bg-white transition-all">
+                            Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Final Results View (Hidden by default) -->
+                <div id="quizResults" class="hidden text-center py-8 space-y-6">
+                    <div class="w-20 h-20 rounded-full bg-royalGold/20 border-2 border-royalGold text-royalGold text-3xl flex items-center justify-center mx-auto">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h4 class="font-serif text-3xl font-bold text-white">Quiz Completed!</h4>
+                    <p id="finalScoreMessage" class="text-gray-300 text-lg">You scored 5 out of 5</p>
+                    <button id="restartQuizBtn" class="px-8 py-3 rounded-full bg-royalGold text-royalDark font-bold text-sm uppercase tracking-wider hover:scale-105 transition-all">
+                        <i class="fa-solid fa-rotate-right mr-2"></i> Retake Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-royalGold/20 bg-royalDark py-12 px-4 text-center text-gray-400 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto space-y-4">
+            <div class="flex items-center justify-center gap-2">
+                <span class="font-serif text-white font-bold tracking-widest text-base">INGOMA Y'U RWANDA</span>
+            </div>
+            <p class="max-w-md mx-auto text-gray-500">
+                Preserving, celebrating, and honoring the monumental history and sacred cultural legacy of the Rwandan Monarchy.
+            </p>
+            <p class="text-royalGold/60">© 2026 Rwandan Royal Heritage Interactive Archive. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE DETAIL MODAL / DRAWER -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 modal-blur transition-opacity duration-300">
+        <div class="glass-panel w-full max-w-3xl rounded-3xl border border-royalGold/40 overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-royalGold/20 flex justify-between items-start bg-royalNavy/90">
+                <div class="flex items-center gap-4">
+                    <div id="modalIcon" class="w-12 h-12 rounded-full bg-royalGold/20 border border-royalGold text-royalGold flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div>
+                        <h3 id="modalTitle" class="font-serif text-2xl font-bold text-white">Title</h3>
+                        <span id="modalSubtitle" class="text-xs text-royalGold uppercase font-semibold tracking-wider">Subtitle</span>
+                    </div>
+                </div>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-white text-2xl p-1 focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-6 flex-1 text-gray-300 text-sm sm:text-base leading-relaxed">
+                <div id="modalBody">
+                    <!-- Dynamic details injected here -->
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-royalGold/20 bg-royalNavy/90 flex justify-end">
+                <button id="modalActionBtn" class="px-6 py-2 rounded-full bg-royalGold text-royalDark font-bold text-xs uppercase tracking-wider hover:bg-white transition-all">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ==========================================================================
+           1. DATA ARCHIVE: KINGS OF RWANDA
+           ========================================================================== */
+        const KINGS_DATA = [
+            {
+                id: 'gihanga',
+                name: "Gihanga I Ngomijana",
+                dynasty: "mythological",
+                title: "The Legendary Founder & Progenitor",
+                era: "c. 1091 BC / Ancient Antiquity",
+                summary: "Credited in oral traditions as the founding ancestor of Rwanda who established royal traditions, metalworking, cattle keeping, and sacred drum symbols.",
+                details: `
+                    <p class="mb-4"><strong>King Gihanga Ngomijana</strong> is revered in Rwandan tradition as the mythic ancestor and cultural hero who founded the kingdom of Rwanda. According to oral history (<em>Abasizi</em> poems), he brought essential innovations to the region.</p>
+                    <h5 class="text-royalGold font-bold uppercase text-xs tracking-wider mb-2">Key Accomplishments:</h5>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-300 mb-4">
+                        <li><strong>Introduction of Fire & Metallurgy:</strong> Taught the art of iron smelting, toolmaking, and wood carving.</li>
+                        <li><strong>Establishment of Royal Regalia:</strong> Created the sacred royal drum <em>Rukurura</em> and established the court rituals.</li>
+                        <li><strong>Cradle of Gasabo:</strong> Set up his central seat in Gasabo, near Lake Muhazi, considered the historic cradle of Rwanda.</li>
+                    </ul>
+                    <blockquote class="italic border-l-2 border-royalGold pl-4 my-4 text-royalGoldLight">
+                        "Gihanga, the founder who connected heaven and earth, establishing the eternal hearth of Rwanda."
+                    </blockquote>
+                `
+            },
+            {
+                id: 'ruganzu-ndoli',
+                name: "Ruganzu II Ndoli",
+                dynasty: "expansionist",
+                title: "The Conqueror & Savior King",
+                era: "c. 1510 – 1543",
+                summary: "One of Rwanda's most celebrated warrior kings who liberated the kingdom from foreign invaders and expanded its borders immensely.",
+                details: `
+                    <p class="mb-4"><strong>Ruganzu II Ndoli</strong> is legendary in Rwandan mythology and history. Returning from exile in Karagwe (modern Tanzania), he re-established the throne after a devastating period of foreign subjugation.</p>
+                    <h5 class="text-royalGold font-bold uppercase text-xs tracking-wider mb-2">Legendary Feats & Sacred Relics:</h5>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-300 mb-4">
+                        <li><strong>Utubindi twa Rubona:</strong> According to legend, during a thirsty military march, Ruganzu struck rocks with his spear to magically release fresh drinking water for his troops.</li>
+                        <li><strong>Military Brilliance:</strong> Re-captured key territories and protected the kingdom's sovereignty.</li>
+                        <li><strong>Cultural Hero:</strong> Revered in dozens of folk tales for his superhuman physical feats and intelligence.</li>
+                    </ul>
+                `
+            },
+            {
+                id: 'cyilima-rujogera',
+                name: "Cyilima II Rujugira",
+                dynasty: "expansionist",
+                title: "The Master Strategist & Shield of Rwanda",
+                era: "c. 1770 – 1786",
+                summary: "Standardized royal defense mechanisms and established permanent military garrisons along Rwanda's borders.",
+                details: `
+                    <p class="mb-4"><strong>Cyilima II Rujugira</strong> faced multiple coalition wars from neighboring kingdoms. Through strategic military planning and diplomacy, he fortified the borders of Rwanda.</p>
+                    <h5 class="text-royalGold font-bold uppercase text-xs tracking-wider mb-2">Key Achievements:</h5>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-300 mb-4">
+                        <li><strong>Standing Armies (Ingabo):</strong> Created permanent border guard posts to prevent invasions.</li>
+                        <li><strong>Economic Stability:</strong> Expanded cattle herds and agricultural storage systems.</li>
+                    </ul>
+                `
+            },
+            {
+                id: 'kigeri-rwabugiri',
+                name: "Kigeri IV Rwabugiri",
+                dynasty: "expansionist",
+                title: "The Grand Empire Builder",
+                era: "1853 – 1895",
+                summary: "A formidable monarch who centralized power, created modern administrative structures, and brought Rwanda to its greatest territorial extent.",
+                details: `
+                    <p class="mb-4"><strong>Kigeri IV Rwabugiri</strong> was one of Rwanda's most powerful late 19th-century kings. He conducted extensive military campaigns and reorganized state administration.</p>
+                    <h5 class="text-royalGold font-bold uppercase text-xs tracking-wider mb-2">Key Reforms & Feats:</h5>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-300 mb-4">
+                        <li><strong>Administrative Centralization:</strong> Reorganized land tenure systems and administrative districts.</li>
+                        <li><strong>First European Contact:</strong> Was the reigning king when European explorers first entered the realm.</li>
+                    </ul>
+                `
+            },
+            {
+                id: 'mutara-rudahigwa',
+                name: "Mutara III Rudahigwa",
+                dynasty: "modern",
+                title: "The Reformer & Modernizer",
+                era: "1931 – 1959",
+                summary: "A visionary ruler who abolished feudal labor practices, embraced education, and advocated for national unity and independence.",
+                details: `
+                    <p class="mb-4"><strong>Mutara III Rudahigwa</strong> ruled during the colonial transition era. He was instrumental in introducing modern education, health infrastructure, and social reforms while protecting Rwandan dignity.</p>
+                    <h5 class="text-royalGold font-bold uppercase text-xs tracking-wider mb-2">Legacy & Contributions:</h5>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-300 mb-4">
+                        <li><strong>Social Equality Reforms:</strong> Formally abolished the traditional forced servitude systems (*Ubuhake*).</li>
+                        <li><strong>Nyanza Royal Palace:</strong> Built the royal residence in Nyanza, now preserved as the King's Palace Museum.</li>
+                        <li><strong>Advocate for Education:</strong> Encouraged the establishment of schools across the nation.</li>
+                    </ul>
+                `
+            },
+            {
+                id: 'kigeri-ndahindurwa',
+                name: "Kigeri V Ndahindurwa",
+                dynasty: "modern",
+                title: "The Final Monarch of Rwanda",
+                era: "1959 – 1961",
+                summary: "The last reigning Mwami of Rwanda before the monarchy was dissolved prior to independence in 1962.",
+                details: `
+                    <p class="mb-4"><strong>King Kigeri V Ndahindurwa</strong> succeeded his brother Mutara III in 1959 during a turbulent political transition period.</p>
+                    <h5 class="text-royalGold font-bold uppercase text-xs tracking-wider mb-2">Historical Note:</h5>
+                    <p class="text-gray-300 mb-4">Though his reign was brief, he remained a respected cultural custodian throughout his life in exile, establishing philanthropic foundations to support Rwandan students abroad.</p>
+                `
+            }
+        ];
+
+        /* ==========================================================================
+           2. DATA ARCHIVE: HISTORICAL SITES
+           ========================================================================== */
+        const SITES_DATA = [
+            {
+                id: 'rukari-palace',
+                name: "King's Palace Museum at Nyanza (Rukari)",
+                location: "Nyanza District, Southern Province",
+                icon: "fa-building-columns",
+                summary: "A detailed reconstruction of the traditional royal residence with beehive thatched huts and majestic Inyambo cattle.",
+                details: `
+                    <p class="mb-3">The <strong>Rukari Royal Palace</strong> in Nyanza offers a vivid step back in time. It features a meticulously crafted replica of the traditional royal dome palace (*Ingoro*), constructed entirely using natural fibers and wood.</p>
+                    <p class="mb-3">Adjacent to the traditional palace is the 1930s modern residence built for King Mutara III Rudahigwa, displaying royal artifacts, furniture, and historical photography.</p>
+                `
+            },
+            {
+                id: 'rwesero-art',
+                name: "Rwesero Arts Museum",
+                location: "Nyanza Hill",
+                icon: "fa-palette",
+                summary: "Originally built as a palace for King Mutara III Rudahigwa, now a grand gallery showcasing Rwandan contemporary art.",
+                details: `
+                    <p class="mb-3">Perched atop Rwesero hill in Nyanza, this architectural landmark was designed as a modern palace for King Mutara III Rudahigwa. Though he passed away before occupying it, the majestic building stands today as a celebrated arts museum.</p>
+                `
+            },
+            {
+                id: 'buhanga-park',
+                name: "Buhanga Eco-Park (Sacred Forest)",
+                location: "Musanze District",
+                icon: "fa-tree",
+                summary: "The sacred ancient forest where coronation rituals and cleansing ceremonies for ancient kings took place.",
+                details: `
+                    <p class="mb-3"><strong>Buhanga Eco-Park</strong> is a deeply mystical sanctuary built on an ancient volcanic lava flow. It was the sacred site where newly crowned kings underwent coronation baths (*Ubwuhagiro*) and ritual purifications prior to assumption of power.</p>
+                `
+            },
+            {
+                id: 'kamegeri-rock',
+                name: "Kamegeri's Rock (Urutare rwa Kamegeri)",
+                location: "Ruhango District",
+                icon: "fa-mountain",
+                summary: "A natural rock associated with King Yuhi IV Gahindiro and the legend of justice regarding Kamegeri.",
+                details: `
+                    <p class="mb-3">Legend holds that an advisor named Kamegeri suggested heating this flat rock with firewood to punish criminals. Testing Kamegeri's cruelty, King Yuhi IV Gahindiro ordered Kamegeri himself to be placed on the rock, creating a historical proverb against cruel malice.</p>
+                `
+            },
+            {
+                id: 'utubindi-rubona',
+                name: "Utubindi twa Rubona",
+                location: "Rwamagana District",
+                icon: "fa-faucet-drip",
+                summary: "Sacred clay vessel-shaped rock excavations attributed to King Ruganzu II Ndoli's miraculous powers.",
+                details: `
+                    <p class="mb-3">Located in Rwamagana, these natural rock formations resemble traditional clay pots (*Utubindi*). Oral tradition recounts that King Ruganzu II carved these water vessels with his spear to provide fresh spring water for his weary army.</p>
+                `
+            },
+            {
+                id: 'gasabo-cradle',
+                name: "Gasabo - Cradle of the Kingdom",
+                location: "Gasabo District, Kigali",
+                icon: "fa-monument",
+                summary: "The original historical domain where Gihanga Ngomijana established the kernel of the kingdom.",
+                details: `
+                    <p class="mb-3">The name "Rwanda" originated in Gasabo. It was from this core central territory that successive kings gradually expanded the country into its present borders, coining the phrase <em>"Rwanda Nshya"</em> (Expanded Rwanda).</p>
+                `
+            }
+        ];
+
+        /* ==========================================================================
+           3. TRIVIA QUIZ DATA
+           ========================================================================== */
+        const QUIZ_DATA = [
+            {
+                question: "Who is celebrated in oral tradition as the mythical founder and progenitor of Rwanda?",
+                options: ["Ruganzu II Ndoli", "Gihanga I Ngomijana", "Mutara III Rudahigwa", "Kigeri IV Rwabugiri"],
+                answer: 1,
+                explanation: "Gihanga I Ngomijana is considered the legendary founder who introduced metallurgy, fire, and royal traditions."
+            },
+            {
+                question: "What was the supreme sacred royal drum and symbol of sovereignty in ancient Rwanda?",
+                options: ["Kalinga", "Inyambo", "Amashako", "Ibyivugo"],
+                answer: 0,
+                explanation: "Kalinga was the sacred royal drum that represented the kingdom's statehood and national unity."
+            },
+            {
+                question: "Which royal site housed the beehive traditional palace and long-horned Inyambo cattle?",
+                options: ["Buhanga Eco-Park", "Utubindi twa Rubona", "King's Palace Museum at Rukari (Nyanza)", "Kamegeri's Rock"],
+                answer: 2,
+                explanation: "Rukari in Nyanza was the royal seat featuring the traditional dome palace and sacred cattle."
+            },
+            {
+                question: "Where did royal coronation rituals and sacred cleansing baths for kings take place?",
+                options: ["Rwesero Hill", "Buhanga Eco-Park", "Gasabo Hill", "Ruhango"],
+                answer: 1,
+                explanation: "Buhanga Eco-Park was the sacred ancient forest reserved for monarchic coronation ceremonies."
+            },
+            {
+                question: "Who was the last reigning monarch (Mwami) of Rwanda?",
+                options: ["Mutara III Rudahigwa", "Yuhi V Musinga", "Kigeri V Ndahindurwa", "Cyilima II Rujugira"],
+                answer: 2,
+                explanation: "King Kigeri V Ndahindurwa was the last reigning monarch of Rwanda before the 1961 political transformation."
+            }
+        ];
+
+        /* ==========================================================================
+           4. DOM INITIALIZATION & RENDER FUNCTIONS
+           ========================================================================== */
+        document.addEventListener('DOMContentLoaded', () => {
+            renderKings('all');
+            renderSites();
+            initQuiz();
+            initAudioSimulation();
+            setupMobileMenu();
+        });
+
+        // Mobile Menu Toggle
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const menu = document.getElementById('mobileMenu');
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => menu.classList.add('hidden'));
+            });
+        }
+
+        // Render Kings Grid
+        function renderKings(filter) {
+            const grid = document.getElementById('kingsGrid');
+            grid.innerHTML = '';
+
+            const filteredKings = filter === 'all' 
+                ? KINGS_DATA 
+                : KINGS_DATA.filter(k => k.dynasty === filter);
+
+            filteredKings.forEach(king => {
+                const card = document.createElement('div');
+                card.className = "glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between border border-royalGold/20 relative group";
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-start">
+                            <span class="px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold bg-royalGold/10 text-royalGold border border-royalGold/30">
+                                ${king.era}
+                            </span>
+                            <i class="fa-solid fa-crown text-royalGold/40 group-hover:text-royalGold transition-colors text-lg"></i>
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-white group-hover:text-royalGold transition-colors">${king.name}</h4>
+                        <p class="text-xs text-royalGold uppercase tracking-wider font-semibold">${king.title}</p>
+                        <p class="text-gray-300 text-sm leading-relaxed pt-2">${king.summary}</p>
+                    </div>
+                    <div class="pt-6 mt-4 border-t border-royalGold/10 flex items-center justify-between">
+                        <button onclick="openKingModal('${king.id}')" class="text-xs text-royalGold font-bold uppercase tracking-wider flex items-center gap-2 hover:text-white transition-colors">
+                            Read Biography <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Buttons Logic
+        document.querySelectorAll('.dynasty-filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.dynasty-filter-btn').forEach(b => {
+                    b.classList.remove('bg-royalGold', 'text-royalDark');
+                    b.classList.add('text-gray-300');
+                });
+                e.target.classList.add('bg-royalGold', 'text-royalDark');
+                e.target.classList.remove('text-gray-300');
+                renderKings(e.target.getAttribute('data-filter'));
+            });
+        });
+
+        // Render Sacred Sites
+        function renderSites() {
+            const container = document.getElementById('sitesContainer');
+            container.innerHTML = '';
+
+            SITES_DATA.forEach(site => {
+                const card = document.createElement('div');
+                card.className = "glass-panel glass-panel-hover rounded-2xl p-6 border border-royalGold/20 relative flex flex-col justify-between";
+                card.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-xl bg-terracotta/20 border border-terracotta/40 flex items-center justify-center text-terracotta text-xl">
+                            <i class="fa-solid ${site.icon}"></i>
+                        </div>
+                        <h4 class="font-serif text-xl font-bold text-white">${site.name}</h4>
+                        <span class="inline-block text-xs text-royalGold font-semibold"><i class="fa-solid fa-location-dot mr-1"></i> ${site.location}</span>
+                        <p class="text-gray-300 text-sm leading-relaxed">${site.summary}</p>
+                    </div>
+                    <div class="pt-6 mt-4 border-t border-royalGold/10">
+                        <button onclick="openSiteModal('${site.id}')" class="w-full py-2.5 rounded-xl border border-royalGold/30 text-royalGold hover:bg-royalGold hover:text-royalDark font-bold text-xs uppercase tracking-wider transition-all">
+                            Explore Site Details
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        /* ==========================================================================
+           5. MODAL SYSTEM
+           ========================================================================== */
+        const modal = document.getElementById('detailModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalActionBtn = document.getElementById('modalActionBtn');
+
+        function openKingModal(id) {
+            const king = KINGS_DATA.find(k => k.id === id);
+            if (!king) return;
+
+            document.getElementById('modalTitle').textContent = king.name;
+            document.getElementById('modalSubtitle').textContent = `${king.title} (${king.era})`;
+            document.getElementById('modalIcon').innerHTML = `<i class="fa-solid fa-crown"></i>`;
+            document.getElementById('modalBody').innerHTML = king.details;
+
+            showModal();
+        }
+
+        function openSiteModal(id) {
+            const site = SITES_DATA.find(s => s.id === id);
+            if (!site) return;
+
+            document.getElementById('modalTitle').textContent = site.name;
+            document.getElementById('modalSubtitle').textContent = site.location;
+            document.getElementById('modalIcon').innerHTML = `<i class="fa-solid ${site.icon}"></i>`;
+            document.getElementById('modalBody').innerHTML = site.details;
+
+            showModal();
+        }
+
+        function showModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        closeModalBtn.addEventListener('click', hideModal);
+        modalActionBtn.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
+        });
+
+        /* ==========================================================================
+           6. AUDIO RECITATION SIMULATION
+           ========================================================================== */
+        function initAudioSimulation() {
+            const playBtn = document.getElementById('playAudioBtn');
+            const playIcon = document.getElementById('playIcon');
+            const progressBar = document.getElementById('audioProgressBar');
+            const audioTime = document.getElementById('audioTime');
+            let isPlaying = false;
+            let progress = 0;
+            let timer = null;
+
+            playBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                if (isPlaying) {
+                    playIcon.className = "fa-solid fa-pause text-sm";
+                    timer = setInterval(() => {
+                        progress += 3.33; // 30 second simulation
+                        if (progress > 100) {
+                            progress = 0;
+                            isPlaying = false;
+                            playIcon.className = "fa-solid fa-play text-sm";
+                            clearInterval(timer);
+                        }
+                        progressBar.style.width = `${progress}%`;
+                        const currentSec = Math.floor((progress / 100) * 30);
+                        audioTime.textContent = `0:${currentSec < 10 ? '0' : ''}${currentSec} / 0:30`;
+                    }, 1000);
+                } else {
+                    playIcon.className = "fa-solid fa-play text-sm";
+                    clearInterval(timer);
+                }
+            });
+        }
+
+        /* ==========================================================================
+           7. INTERACTIVE TRIVIA QUIZ LOGIC
+           ========================================================================== */
+        let currentQuestionIdx = 0;
+        let quizScore = 0;
+        let selectedOption = null;
+
+        function initQuiz() {
+            currentQuestionIdx = 0;
+            quizScore = 0;
+            document.getElementById('quizCard').classList.remove('hidden');
+            document.getElementById('quizResults').classList.add('hidden');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = QUIZ_DATA[currentQuestionIdx];
+            selectedOption = null;
+
+            document.getElementById('quizProgressText').textContent = `Question ${currentQuestionIdx + 1} of ${QUIZ_DATA.length}`;
+            document.getElementById('quizScoreText').textContent = `Score: ${quizScore}`;
+            document.getElementById('quizQuestion').textContent = q.question;
+
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+
+            const feedback = document.getElementById('quizFeedback');
+            feedback.classList.add('hidden');
+
+            const nextBtn = document.getElementById('nextQuizBtn');
+            nextBtn.classList.add('hidden');
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 rounded-xl glass-panel text-left text-sm font-medium text-white hover:border-royalGold transition-all flex items-center justify-between border border-royalGold/20";
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle text-gray-500"></i>`;
+                btn.addEventListener('click', () => handleOptionSelect(idx, btn));
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleOptionSelect(optionIdx, buttonEl) {
+            if (selectedOption !== null) return; // Prevent multiple selects
+            selectedOption = optionIdx;
+
+            const q = QUIZ_DATA[currentQuestionIdx];
+            const options = document.getElementById('quizOptions').children;
+            const feedback = document.getElementById('quizFeedback');
+            const nextBtn = document.getElementById('nextQuizBtn');
+
+            if (optionIdx === q.answer) {
+                quizScore++;
+                buttonEl.classList.add('bg-emerald-900/50', 'border-emerald-500', 'text-emerald-200');
+                buttonEl.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400";
+                feedback.className = "p-4 rounded-xl text-sm font-medium mb-6 bg-emerald-900/30 text-emerald-300 border border-emerald-500/30";
+                feedback.textContent = `Correct! ${q.explanation}`;
+            } else {
+                buttonEl.classList.add('bg-rose-900/50', 'border-rose-500', 'text-rose-200');
+                buttonEl.querySelector('i').className = "fa-solid fa-circle-xmark text-rose-400";
+                
+                // Highlight correct
+                options[q.answer].classList.add('bg-emerald-900/30', 'border-emerald-500/50');
+                
+                feedback.className = "p-4 rounded-xl text-sm font-medium mb-6 bg-rose-900/30 text-rose-300 border border-rose-500/30";
+                feedback.textContent = `Incorrect. ${q.explanation}`;
+            }
+
+            feedback.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+            document.getElementById('quizScoreText').textContent = `Score: ${quizScore}`;
+        }
+
+        document.getElementById('nextQuizBtn').addEventListener('click', () => {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < QUIZ_DATA.length) {
+                loadQuestion();
+            } else {
+                showQuizResults();
+            }
+        });
+
+        function showQuizResults() {
+            document.getElementById('quizCard').classList.add('hidden');
+            const results = document.getElementById('quizResults');
+            results.classList.remove('hidden');
+            document.getElementById('finalScoreMessage').textContent = `You scored ${quizScore} out of ${QUIZ_DATA.length} on Rwandan Royal History!`;
+        }
+
+        document.getElementById('restartQuizBtn').addEventListener('click', initQuiz);
+    </script>
+</body>
+</html>
